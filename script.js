@@ -55,8 +55,8 @@ async function fetchCountries(){
   const json = await res.json();
   
   allProducts = Array.from(json.results)
-  // console.log(allProducts)
-  // console.log(Object.keys(localStorage))
+  
+  totalPrice.innerText = 0
 
   if (localStorage.getItem('cart')) {
     const localProduct = JSON.parse(localStorage.getItem('cart'))
@@ -99,7 +99,7 @@ function handleButtons(){
     cItemsArr.forEach((item) => {
       cart.removeChild(item)
     })
-    cartPrice = 0
+    totalPrice.innerText = 0
   }
 }
 
