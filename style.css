@@ -12,14 +12,18 @@
 }
 
 .item {
-  border: 2px solid blue;
-  border-radius: 5px;
+  border-radius: 20px;
   box-sizing: border-box;
+  box-shadow: 0 0 10px 1px rgb(208, 208, 208);
+  font-family: Roboto, sans-serif;
+  color: rgb(97, 97, 97);
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   height: auto;
-  margin: 5px;
-  width: 200px;
+  margin: 25px;
+  padding: 10px;
+  width: 250px;
 }
 
 .item .item__sku {
@@ -37,21 +41,60 @@
 }
 
 .item .item__add {
-  background-color: green;
+  position: relative;
+  overflow: hidden;
+  transition: background 400ms;
+  color: white;
+  background-color: rgb(98, 0, 238);
+  padding: 1em 2rem;
+  font-family: Roboto, sans-serif;
+  outline: 0;
   border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  margin: 0;
-  padding: 5px;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.item .item__add:hover {
+  background: rgb(64, 0, 155);
 }
 
 .cart {
   display: flex;
   flex-basis: 30%;
   flex-flow: column wrap;
+  padding: 15px;
+  background: rgb(242, 242, 242);
 }
 
 .cart .cart__title {
   flex-basis: 1;
   font-size: 16pt;
   text-align: center;
+  font-family: Roboto, sans-serif;
+  font-weight: 800;
+}
+
+.cart .cart__item {
+  margin-bottom: 15px;
+}
+
+.cart .empty-cart {
+  position: relative;
+  overflow: hidden;
+  transition: background 400ms;
+  color: white;
+  background-color: rgb(175, 0, 0);
+  padding: 1em 2rem;
+  font-family: Roboto, sans-serif;
+  outline: 0;
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 1rem;
+  margin-top: 10px;
 }
