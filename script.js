@@ -51,10 +51,12 @@ function createCartItemElement({ sku, name, salePrice }) {
 
 async function fetchCountries(){
   const keyword = 'computador'
+  items.innerHTML = `<div class="loading">Carregando itens disponíveis...</div>`
   const res = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${keyword}`);
   const json = await res.json();
+  items.innerHTML = ``
   
-  allProducts = Array.from(json.results)
+  allProducts = Array.from(json.results)  
   
   totalPrice.innerText = 0
 
@@ -77,7 +79,6 @@ function render(){
       name: product.title,
       image: product.thumbnail
     }
-    // console.log(obj)
     items.appendChild(createProductItemElement(obj));
 
   })
@@ -100,6 +101,7 @@ function handleButtons(){
       cart.removeChild(item)
     })
     totalPrice.innerText = 0
+    cartPrice = 0
   }
 }
 
@@ -118,13 +120,10 @@ async function productToCart(index){
   localStorage.setItem('cart', JSON.stringify(cartSaved))
   totalPriceOfItems(obj.salePrice)
 } 
+
 function totalPriceOfItems(price){
   cartPrice += price
   totalPrice.innerText = `${cartPrice}`
-  // li.className = 'cart__item';
-  // li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
-  // li.addEventListener('click', cartItemClickListener);
-  // return li;
 }
 
 let items = null
