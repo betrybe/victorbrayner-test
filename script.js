@@ -45,7 +45,7 @@ function cartItemClickListener(event) {
       localStorage.setItem('cart', JSON.stringify(cartSaved));
     }
   });
-  
+
   cart.removeChild(event.target);
   totalPriceOfItems(-(event.target.innerText.split('$')[1]));
 }
@@ -111,7 +111,7 @@ function render() {
 
 async function loadProducts() {
   const keyword = 'computador';
-  items.innerHTML = '<div class="loading">Carregando itens disponíveis...</div>';
+  items.innerHTML = '<div class="loading">loading...</div>';
   const res = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${keyword}`);
   const json = await res.json();
   items.innerHTML = '';
